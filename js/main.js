@@ -85,5 +85,19 @@ const app = Vue.createApp({
                 this.fullPrice = this.totalServerPrice + this.totalWorkstationPrice + this.totalLaptopPrice;
             }
         }
-    }
+    },
+    computed: {
+        formatedTotalServerPrice() {
+            return new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD' }).format(this.totalServerPrice);
+        },
+        formatedTotalWorkstationPrice() {
+            return new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD' }).format(this.totalWorkstationPrice);
+        },
+        formatedTotalLaptopPrice() {
+            return new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD' }).format(this.totalLaptopPrice);
+        },
+        formatedFullPrice() {
+            return new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD' }).format(this.fullPrice);
+        }
+    },
 });
