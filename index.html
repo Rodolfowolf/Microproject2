@@ -18,9 +18,9 @@
 <body>
     <main id="app" class="container main-content">
         <h1 class="my-4">{{ title }}</h1>
-        <p>{{ mainPara }} 
-            <span v-if="salesAvailable" class="badge badge-success">AVAILABLE</span>
-            <span v-else class="badge badge-danger">NOT AVAILABLE</span>
+        <p>{{ mainDescription }} 
+            <span v-if="salesAvailable" class="badge badge-success">Stock Available</span>
+            <span v-else class="badge badge-danger">Stock Not Available</span>
         </p>
 
         <div v-if="salesAvailable" class="mb-4">

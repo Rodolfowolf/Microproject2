@@ -6,7 +6,7 @@ const app = Vue.createApp({
     data(){
         return{
             title: "RFQ - Request For Quotation List",
-            mainPara: "Configurator to prepare de Request For Quotation list",
+            mainDescription: "Our configurator simplifies the process of preparing a comprehensive Request For Quotation (RFQ) list. Select from a variety of server, workstation, and laptop models to generate a detailed and accurate quote tailored to your specific needs. This tool ensures you capture all essential details, making the procurement process more efficient and precise.",
             salesAvailable: true,
             inventoryserver: 5,
             inventoryworkstation: 10,
