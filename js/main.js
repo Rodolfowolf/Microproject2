@@ -55,6 +55,8 @@ const app = Vue.createApp({
         removeFromserverlist() {
             if (this.serverlist >= 1) {
                 this.serverlist -= 1
+                this.totalServerPrice = this.serverPrice * this.serverlist;
+                this.fullPrice = this.totalServerPrice + this.totalWorkstationPrice + this.totalLaptopPrice;
             }
         },
         addToworkstationlist() {
@@ -66,6 +68,8 @@ const app = Vue.createApp({
         removeFromworkstationlist() {
             if (this.workstationlist >= 1) {
                 this.workstationlist -= 1
+                this.totalWorkstationPrice = this.workstationPrice * this.workstationlist;
+                this.fullPrice = this.totalServerPrice + this.totalWorkstationPrice + this.totalLaptopPrice;
             }
         },
         addTolaptoplist() {
@@ -77,6 +81,8 @@ const app = Vue.createApp({
         removeFromlaptoplist() {
             if (this.laptoplist >= 1) {
                 this.laptoplist -= 1
+                this.totalLaptopPrice = this.laptopPrice * this.laptoplist;
+                this.fullPrice = this.totalServerPrice + this.totalWorkstationPrice + this.totalLaptopPrice;
             }
         }
     }
