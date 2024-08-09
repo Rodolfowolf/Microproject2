@@ -41,10 +41,15 @@
             <ul class="list-group mb-3">
                 <li v-for="item in server" :key="item" class="list-group-item">{{ item }}</li>
             </ul>
-            <div class="list">Total of servers: {{ serverlist }}</div>
+            <div class="card text-center mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">Total Servers</h5>
+                    <p class="card-text">{{ serverlist }}</p>
+                </div>
+            </div>
             <p v-if="inventoryserver > serverlist">
             <button class="btn btn-primary button" @click="addToserverlist">Add to list</button></p>
-            <button class="btn btn-danger button" @click="removeFromserverlist">Remove from list</button>
+            <button class="btn btn-danger button" @click="removeFromserverlist">Remove from list</button></p>
         </div>
 
         <div v-if="salesAvailable" class="mb-4">
@@ -65,7 +70,12 @@
             <ul class="list-group mb-3">
                 <li v-for="item in workstation" :key="item" class="list-group-item">{{ item }}</li>
             </ul>
-            <div class="list">Total of workstations: {{ workstationlist }}</div>
+            <div class="card text-center mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">Total Workstations</h5>
+                    <p class="card-text">{{ workstationlist }}</p>
+                </div>
+            </div>
             <p v-if="inventoryworkstation > workstationlist">
             <button class="btn btn-primary button" @click="addToworkstationlist">Add to list</button></p>
             <button class="btn btn-danger button" @click="removeFromworkstationlist">Remove from list</button>
@@ -89,17 +99,61 @@
             <ul class="list-group mb-3">
                 <li v-for="item in laptop" :key="item" class="list-group-item">{{ item }}</li>
             </ul>
-            <div class="list">Total of laptops: {{ laptoplist }}</div>
+            <div class="card text-center mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">Total Laptops</h5>
+                    <p class="card-text">{{ laptoplist }}</p>
+                </div>
+            </div>
             <p v-if="inventorylaptop > laptoplist">
             <button class="btn btn-primary button" @click="addTolaptoplist">Add to list</button></p>
             <button class="btn btn-danger button" @click="removeFromlaptoplist">Remove from list</button>
 
-            <div>
+            <!-- <div>
                 <div class="list">Total Server CAD $: {{ totalServerPrice }}</div>
                 <div class="list">Total Workstation CAD $: {{ totalWorkstationPrice }}</div>
                 <div class="list">Total Laptop CAD $: {{ totalLaptopPrice }}</div>
                 <div class="list">Total Purchase CAD $: {{ fullPrice }}</div>
+            </div> -->
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6 mb-3">
+                            <div class="card text-white bg-info">
+                                <div class="card-body">
+                                    <h6 class="card-title">Total Server CAD $</h6>
+                                    <p class="card-text">{{ totalServerPrice }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="card text-white bg-warning">
+                                <div class="card-body">
+                                    <h6 class="card-title">Total Workstation CAD $</h6>
+                                    <p class="card-text">{{ totalWorkstationPrice }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="card text-white bg-success">
+                                <div class="card-body">
+                                    <h6 class="card-title">Total Laptop CAD $</h6>
+                                    <p class="card-text">{{ totalLaptopPrice }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="card text-white bg-primary">
+                                <div class="card-body">
+                                    <h6 class="card-title">Total Purchase CAD $</h6>
+                                    <p class="card-text">{{ fullPrice }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
         </div>
     </main>
     <footer class="text-center py-4">
