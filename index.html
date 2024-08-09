@@ -18,7 +18,11 @@
 <body>
     <main id="app" class="container main-content">
         <h1 class="my-4">{{ title }}</h1>
-        <p>{{ mainDescription }} 
+        <div class="card mb-4">
+            <div class="card-body">
+              <p class="card-text">{{ mainDescription }}</p>
+            </div>
+          </div>
             <span v-if="salesAvailable" class="badge badge-success">Stock Available</span>
             <span v-else class="badge badge-danger">Stock Not Available</span>
         </p>
@@ -45,6 +49,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Total Servers</h5>
                     <p class="card-text">{{ serverlist }}</p>
+                    <p class="card-text">{{ formatedTotalServerPrice }}</p>
                 </div>
             </div>
             <p v-if="inventoryserver > serverlist">
@@ -74,6 +79,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Total Workstations</h5>
                     <p class="card-text">{{ workstationlist }}</p>
+                    <p class="card-text">{{ formatedTotalWorkstationPrice }}</p>
                 </div>
             </div>
             <p v-if="inventoryworkstation > workstationlist">
@@ -103,18 +109,12 @@
                 <div class="card-body">
                     <h5 class="card-title">Total Laptops</h5>
                     <p class="card-text">{{ laptoplist }}</p>
+                    <p class="card-text">{{ formatedTotalLaptopPrice }}</p>
                 </div>
             </div>
             <p v-if="inventorylaptop > laptoplist">
             <button class="btn btn-primary button" @click="addTolaptoplist">Add to list</button></p>
             <button class="btn btn-danger button" @click="removeFromlaptoplist">Remove from list</button>
-
-            <!-- <div>
-                <div class="list">Total Server CAD $: {{ totalServerPrice }}</div>
-                <div class="list">Total Workstation CAD $: {{ totalWorkstationPrice }}</div>
-                <div class="list">Total Laptop CAD $: {{ totalLaptopPrice }}</div>
-                <div class="list">Total Purchase CAD $: {{ fullPrice }}</div>
-            </div> -->
             <div class="card mt-4">
                 <div class="card-body">
                     <div class="row">
