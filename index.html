@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microproject 2</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .main-content {
+            padding: 20px;
+        }
+        .button {
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <main id="app" class="container main-content">
+        <h1 class="my-4">{{ title }}</h1>
+        <p>{{ mainPara }} 
+            <span v-if="salesAvailable" class="badge badge-success">AVAILABLE</span>
+            <span v-else class="badge badge-danger">NOT AVAILABLE</span>
+        </p>
+
+        <div v-if="salesAvailable" class="mb-4">
+            <div class="form-group">
+                <label for="server-select">Choose a Server model:</label>
+                <select v-model="selectedserver" id="server-select" class="form-control">
+                  <option v-for="serverpicture in servers" :key="serverpicture" :value="serverpicture">{{ serverpicture }}</option>
+                </select>
+                <p class="mt-3">You selected: {{ selectedserver }}</p>
+            </div>
+
+            <div>
+                <p v-if="selectedserver === 'PowerEdge T150'"><img :src="server1" alt="PowerEdge T150" class="img-fluid"></p>
+                <p v-else-if="selectedserver === 'PowerEdge R250'"><img :src="server2" alt="PowerEdge R250" class="img-fluid"></p>
+                <p v-else-if="selectedserver === 'PowerEdge T360'"><img :src="server3" alt="PowerEdge T360" class="img-fluid"></p>
+            </div>
+
+            <ul class="list-group mb-3">
+                <li v-for="item in server" :key="item" class="list-group-item">{{ item }}</li>
+            </ul>
+            <div class="list">Total of servers: {{ serverlist }}</div>
+            <p v-if="inventoryserver > serverlist">
+            <button class="btn btn-primary button" @click="addToserverlist">Add to list</button></p>
+            <button class="btn btn-danger button" @click="removeFromserverlist">Remove from list</button>
+        </div>
+
+        <div v-if="salesAvailable" class="mb-4">
+            <div class="form-group">
+                <label for="workstation-select">Choose a Workstation model:</label>
+                <select v-model="selectedworkstation" id="workstation-select" class="form-control">
+                  <option v-for="workstationpicture in workstations" :key="workstationpicture" :value="workstationpicture">{{ workstationpicture }}</option>
+                </select>
+                <p class="mt-3">You selected: {{ selectedworkstation }}</p>
+            </div>
+
+            <div>
+                <p v-if="selectedworkstation === 'XPS'"><img :src="workstation1" alt="XPS" class="img-fluid"></p>
+                <p v-else-if="selectedworkstation === 'OptiPlex'"><img :src="workstation2" alt="OptiPlex" class="img-fluid"></p>
+                <p v-else-if="selectedworkstation === 'Inspiron'"><img :src="workstation3" alt="Inspiron" class="img-fluid"></p>
+            </div>
+
+            <ul class="list-group mb-3">
+                <li v-for="item in workstation" :key="item" class="list-group-item">{{ item }}</li>
+            </ul>
+            <div class="list">Total of workstations: {{ workstationlist }}</div>
+            <p v-if="inventoryworkstation > workstationlist">
+            <button class="btn btn-primary button" @click="addToworkstationlist">Add to list</button></p>
+            <button class="btn btn-danger button" @click="removeFromworkstationlist">Remove from list</button>
+        </div>
+
+        <div v-if="salesAvailable" class="mb-4">
+            <div class="form-group">
+                <label for="laptop-select">Choose a Laptop model:</label>
+                <select v-model="selectedlaptop" id="laptop-select" class="form-control">
+                  <option v-for="laptoppicture in laptops" :key="laptoppicture" :value="laptoppicture">{{ laptoppicture }}</option>
+                </select>
+                <p class="mt-3">You selected: {{ selectedlaptop }}</p>
+            </div>
+
+            <div>
+                <p v-if="selectedlaptop === 'XPS'"><img :src="laptop1" alt="XPS" class="img-fluid"></p>
+                <p v-else-if="selectedlaptop === 'Latitude'"><img :src="laptop2" alt="Latitude" class="img-fluid"></p>
+                <p v-else-if="selectedlaptop === 'Inspiron'"><img :src="laptop3" alt="Inspiron" class="img-fluid"></p>
+            </div>
+
+            <ul class="list-group mb-3">
+                <li v-for="item in laptop" :key="item" class="list-group-item">{{ item }}</li>
+            </ul>
+            <div class="list">Total of laptops: {{ laptoplist }}</div>
+            <p v-if="inventorylaptop > laptoplist">
+            <button class="btn btn-primary button" @click="addTolaptoplist">Add to list</button></p>
+            <button class="btn btn-danger button" @click="removeFromlaptoplist">Remove from list</button>
+
+            <div>
+                <div class="list">Total Server CAD $: {{ totalServerPrice }}</div>
+                <div class="list">Total Workstation CAD $: {{ totalWorkstationPrice }}</div>
+                <div class="list">Total Laptop CAD $: {{ totalLaptopPrice }}</div>
+                <div class="list">Total Purchase CAD $: {{ fullPrice }}</div>
+            </div>
+        </div>
+    </main>
+    <footer class="text-center py-4">
+        &copy; <span id="year"></span> - RFQ Configurator V-01
+    </footer>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        app.mount('#app');
+    </script>
+</body>
+</html>
