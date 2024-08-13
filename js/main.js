@@ -7,10 +7,12 @@ const app = Vue.createApp({
         return{
             title: "RFQ - Request For Quotation List",
             mainDescription: "Our configurator simplifies the process of preparing a comprehensive Request For Quotation (RFQ) list. Select from a variety of server, workstation, and laptop models to generate a detailed and accurate quote tailored to your specific needs. This tool ensures you capture all essential details, making the procurement process more efficient and precise.",
+            //Inventory variables
             salesAvailable: true,
             inventoryserver: 5,
             inventoryworkstation: 10,
             inventorylaptop: 15,
+            //server variables
             selectedserver: '',
             servers:['PowerEdge T150', 'PowerEdge R250', 'PowerEdge T360'],
             server: ['Processor core: Intel® Pentium G6405T', 'RAM Memory GB size: 1x 8GB, 3200MHz', 'Hard drive Unity: 1x 2TB HD SATA', 'Warranty extension: 1 year warranty','CAD $ 2,500.00'],
@@ -20,6 +22,7 @@ const app = Vue.createApp({
             server3: 'image/server3.avif',
             serverPrice: 2500,
             totalServerPrice: 0,
+            //Workstation variables
             selectedworkstation: '',
             workstations:['XPS', 'OptiPlex', 'Inspiron'],
             workstation: ['Processor core: Intel® Core™ i7 14700', 'RAM Memory GB size: 32 GB: 1 x 32 GB, DDR5, 5600 MT/s; up to 64 GB', 'Hard drive Unity: 512 GB SSD', 'Warranty extension: 1 year warranty','CAD $ 2,000.00'],
@@ -29,6 +32,7 @@ const app = Vue.createApp({
             workstation3: 'image/workstation3.avif',
             workstationPrice: 2000,
             totalWorkstationPrice: 0,
+            //Laptop variables
             selectedlaptop: '',
             laptops:['XPS', 'Latitude', 'Inspiron'],
             laptop: ['Processor core: 13th Gen Intel® Core™ i7-13620H', 'RAM Memory GB size: 32 GB DDR5', 'Hard drive Unity: 1 TB SSD', 'Warranty extension: 1 year warranty','CAD $ 1,500.00'],
@@ -36,6 +40,7 @@ const app = Vue.createApp({
             laptop1: 'image/laptop1.avif',
             laptop2: 'image/laptop2.avif',
             laptop3: 'image/laptop3.avif',
+            //Report variables
             laptopPrice: 1500,
             totalLaptopPrice: 0,
             serverlist: 0,
@@ -85,7 +90,7 @@ const app = Vue.createApp({
                 this.fullPrice = this.totalServerPrice + this.totalWorkstationPrice + this.totalLaptopPrice;
             }
         }
-    },
+    },//Formating to currency view
     computed: {
         formatedTotalServerPrice() {
             return new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD' }).format(this.totalServerPrice);
